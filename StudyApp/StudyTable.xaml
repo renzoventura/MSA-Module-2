@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="StudyApp.StudyTable">
+	<ContentPage.Content>
+         <StackLayout>
+            <Button Text="UPDATE STUDY RECORDS" TextColor="Blue" BackgroundColor="White" Clicked="load_records" /> 
+            <Button Text="Camera" TextColor="Blue" BackgroundColor="White" Clicked="open_cameramenu" />
+            <ListView x:Name="StudyList" HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                                <StackLayout Grid.Column="1" Orientation="Vertical" Margin="0,0,20,0">
+                                    <Label Text="{Binding Study, StringFormat='You studied!'}"/>
+                                    <Label Text="{Binding Day, StringFormat='Date: {0:N}'}"/>
+                                    <Label Text="{Binding Time, StringFormat='Time: {0:N}'}"/>
+                                </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ActivityIndicator x:Name="loading" IsRunning="false" />
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>
